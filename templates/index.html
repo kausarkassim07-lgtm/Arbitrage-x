@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARBITRAGE X — Find the hidden loop</title>
+  <meta name="description" content="An interactive currency arbitrage detection project powered by the Floyd–Warshall algorithm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="topline"><span>INDEPENDENT CURRENCY INTELLIGENCE</span><span class="live-dot"></span><span>ALGORITHM LAB / 001</span></div>
+  <header class="nav wrap">
+    <a class="brand" href="#"><span class="brand-mark">A<span>×</span></span><span>ARBITRAGE<br><b>X</b></span></a>
+    <nav id="navLinks"><a href="#method">Method</a><a href="#engine">Live demo</a><a href="#workflow">How it works</a><a href="#faq">FAQ</a></nav>
+    <a class="nav-cta" href="#engine">Explore engine <span>↗</span></a>
+    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pill">FLOYD–WARSHALL / GRAPH THEORY</span><span>FINTECH RESEARCH PROJECT</span></div>
+        <h1>Find the<br><em>hidden loop.</em></h1>
+        <p class="hero-lede">What if a currency could travel around the world and come back worth more? We turn exchange rates into a graph and search for the loop.</p>
+        <div class="hero-actions"><a class="button dark" href="#engine">Run the detection <span>↗</span></a><a class="text-link" href="#method">Explore the method <span>↓</span></a></div>
+        <div class="hero-foot"><span>01 — CURRENCY GRAPH</span><span>02 — NEGATIVE CYCLE</span><span>03 — PROFIT SIGNAL</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet"><span class="planet-label">FX<br>NETWORK</span><span class="planet-core">↗</span></div>
+        <div class="float-card card-usd"><small>BASE CURRENCY</small><b>USD <span>↗</span></b><i>United States Dollar</i></div>
+        <div class="float-card card-eur"><small>ROUTE NODE</small><b>EUR <span>↗</span></b><i>Euro</i></div>
+        <div class="float-card card-inr"><small>ROUTE NODE</small><b>INR <span>↗</span></b><i>Indian Rupee</i></div>
+        <div class="art-caption">A CYCLE IS ONLY AN OPPORTUNITY<br>UNTIL COSTS ARE ACCOUNTED FOR.</div>
+      </div>
+    </section>
+
+    <section class="ticker"><div>EXCHANGE RATES <b>✳</b> GRAPH THEORY <b>✳</b> NEGATIVE CYCLE <b>✳</b> ARBITRAGE DETECTION <b>✳</b> EXCHANGE RATES <b>✳</b> GRAPH THEORY <b>✳</b></div></section>
+
+    <section class="intro wrap" id="method">
+      <div class="section-tag">01 / THE IDEA</div>
+      <div class="intro-main"><h2>Three currencies.<br><span>One unusual route.</span></h2><p>Currency arbitrage is the possibility of earning a gain by converting through a sequence of exchange rates and returning to the starting currency with a larger amount.</p></div>
+      <div class="stats">
+        <div><strong>O(V³)</strong><span>Floyd–Warshall time complexity</span></div>
+        <div><strong>−ln(r)</strong><span>Exchange rate → edge weight</span></div>
+        <div><strong>∞</strong><span>Pairs analysed in one run</span></div>
+      </div>
+    </section>
+
+    <section class="feature-section">
+      <div class="wrap feature-grid">
+        <div class="feature-copy"><div class="section-tag light">02 / THE TRANSFORMATION</div><h2>Turn rates<br>into <em>routes.</em></h2><p>Each currency becomes a vertex. Each exchange quote becomes a directed edge. A logarithm transforms multiplying exchange rates into adding edge weights.</p><a href="#workflow" class="light-link">See the process ↗</a></div>
+        <div class="graph-card">
+          <div class="graph-top"><span>NETWORK / SAMPLE</span><span class="graph-status"><i></i> SIMULATED</span></div>
+          <svg viewBox="0 0 600 390" role="img" aria-label="Three currency nodes connected in a cycle">
+            <defs><linearGradient id="line" x1="0" x2="1"><stop stop-color="#d7ff62"/><stop offset="1" stop-color="#9f8cff"/></linearGradient></defs>
+            <path class="route-line" d="M300 75 L120 285 L480 285 Z" fill="none" stroke="url(#line)" stroke-width="3" stroke-dasharray="9 8"/>
+            <path d="M300 75 L120 285" stroke="#d7ff62" stroke-width="3" fill="none"/><path d="M120 285 L480 285" stroke="#d7ff62" stroke-width="3" fill="none"/><path d="M480 285 L300 75" stroke="#d7ff62" stroke-width="3" fill="none"/>
+            <g class="node" transform="translate(300 75)"><circle r="48"/><text y="6">USD</text></g>
+            <g class="node purple" transform="translate(120 285)"><circle r="48"/><text y="6">INR</text></g>
+            <g class="node orange" transform="translate(480 285)"><circle r="48"/><text y="6">EUR</text></g>
+            <g class="edge-label" transform="translate(170 150)"><rect width="88" height="29" rx="14"/><text x="44" y="19">× 83.00</text></g>
+            <g class="edge-label" transform="translate(255 300)"><rect width="88" height="29" rx="14"/><text x="44" y="19">× 0.011</text></g>
+            <g class="edge-label" transform="translate(365 150)"><rect width="88" height="29" rx="14"/><text x="44" y="19">× 1.12</text></g>
+          </svg>
+          <div class="graph-bottom"><span>DIRECTED EXCHANGE GRAPH</span><span>USD → INR → EUR → USD</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo wrap" id="engine">
+      <div class="demo-heading"><div><div class="section-tag">03 / TRY THE ENGINE</div><h2>Run a <em>simulation.</em></h2></div><p>Change your starting amount and see how a sample conversion loop behaves. This is a classroom simulation, not a trading signal.</p></div>
+      <div class="engine">
+        <div class="engine-left">
+          <div class="engine-label"><span class="status-pulse"></span> DETECTION CONSOLE <span class="mono">FW-001</span></div>
+          <label for="amount">STARTING AMOUNT <span>USD</span></label>
+          <div class="amount-field"><span>$</span><input id="amount" type="number" min="1" value="1000"><span class="currency">USD</span></div>
+          <div class="route-preview"><small>DEMO CONVERSION PATH</small><div><b>USD</b><i>→</i><b>INR</b><i>→</i><b>EUR</b><i>→</i><b>USD</b></div></div>
+          <button class="button lime" id="runBtn">Detect arbitrage <span>↗</span></button>
+          <p class="micro">Uses intentionally inconsistent sample quotes.</p>
+        </div>
+        <div class="engine-right">
+          <div class="result-head"><span>ANALYSIS OUTPUT</span><span id="resultStatus" class="result-badge">READY</span></div>
+          <div class="result-main"><div><small>ILLUSTRATIVE FINAL VALUE</small><strong id="finalAmount">$1,000.00</strong></div><div class="profit"><small>THEORETICAL PROFIT</small><strong id="profitAmount">+$0.00</strong></div></div>
+          <div class="result-route"><small>DETECTED CYCLE</small><b id="cycleText">Run the engine to analyse the route</b></div>
+          <div class="result-foot"><span>ALGORITHM <b>FLOYD–WARSHALL</b></span><span>COMPLEXITY <b>O(V³)</b></span></div>
+          <p id="note" class="result-note">No calculation has been run yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps wrap" id="workflow">
+      <div class="section-tag">04 / THE WORKFLOW</div><h2>From quote to <em>signal.</em></h2>
+      <div class="step-grid">
+        <article><span>01</span><div class="step-icon">↗</div><h3>Collect rates</h3><p>Build a directed graph from the exchange rates between currency pairs.</p><code>rate(A, B)</code></article>
+        <article><span>02</span><div class="step-icon">⌁</div><h3>Apply logarithms</h3><p>Convert each rate into a weight using the negative natural logarithm.</p><code>weight = −ln(rate)</code></article>
+        <article><span>03</span><div class="step-icon">⤨</div><h3>Find shortest paths</h3><p>Floyd–Warshall checks every intermediate currency to update all-pairs paths.</p><code>dist[i][j]</code></article>
+        <article><span>04</span><div class="step-icon">◎</div><h3>Detect negative cycles</h3><p>A negative value on the distance matrix diagonal signals a profitable theoretical loop.</p><code>dist[i][i] &lt; 0</code></article>
+      </div>
+    </section>
+
+    <section class="reality">
+      <div class="wrap reality-inner"><div><div class="section-tag light">05 / REAL-WORLD CHECK</div><h2>A mathematical<br>signal isn't a <em>guarantee.</em></h2></div><p>Real trading includes bid/ask spreads, transaction fees, liquidity limits, slippage and execution delays. A theoretical cycle can disappear before a trade is completed. This project focuses on detection and learning.</p></div>
+    </section>
+
+    <section class="faq wrap" id="faq"><div><div class="section-tag">06 / QUESTIONS</div><h2>Good to <em>know.</em></h2></div><div class="faq-list">
+      <details open><summary>What is currency arbitrage? <span>＋</span></summary><p>It is the possibility of gaining value through a sequence of currency conversions when the product of the exchange rates in the cycle is greater than 1.</p></details>
+      <details><summary>Why use negative logarithms? <span>＋</span></summary><p>Because multiplying rates around a cycle becomes adding their negative logarithms. A product greater than 1 becomes a negative total weight.</p></details>
+      <details><summary>Why Floyd–Warshall? <span>＋</span></summary><p>It computes shortest paths between every pair of vertices in O(V³) time and can reveal a negative cycle through a negative diagonal entry.</p></details>
+      <details><summary>Does this app execute trades? <span>＋</span></summary><p>No. It is an educational detection prototype. It does not connect to a broker, exchange or trading account.</p></details>
+    </div></section>
+
+    <section class="closing"><div class="wrap closing-inner"><div class="section-tag">ARBITRAGE X / END OF TRANSMISSION</div><h2>Follow the<br><em>right path.</em></h2><a href="#engine" class="button dark">Back to the engine ↗</a><div class="closing-orb">AX</div></div></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#"><span class="brand-mark">A<span>×</span></span><span>ARBITRAGE<br><b>X</b></span></a><span>COLLEGE MINI PROJECT · GRAPH ALGORITHMS</span><span>BUILT FOR LEARNING © 2026</span></footer>
+  <script src="/app.js"></script>
+</body></html>
